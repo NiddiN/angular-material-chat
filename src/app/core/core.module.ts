@@ -6,7 +6,6 @@ import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [SignInComponent],
