@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '@services';
 
 @Component({
@@ -20,11 +20,21 @@ export class SignInComponent {
 
   private buildForm(): void {
     this.signInForm = this.fb.group({
-      username: ['']
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-ZА-Яа-я]*$/)
+        ]
+      ]
     });
   }
 
   public submit(): void {
     this.userService.signIn(this.signInForm.value);
+  }
+
+  public isInvalidForm(): boolean {
+    return this.signInForm.invalid;
   }
 }
