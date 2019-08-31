@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { UserService } from 'src/app/services';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +11,10 @@ export class SignInComponent {
 
   public signInForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService
+  ) {
     this.buildForm();
   }
 
@@ -21,6 +25,6 @@ export class SignInComponent {
   }
 
   public submit(): void {
-    console.log(this.signInForm.value)
+    this.userService.signIn(this.signInForm.value);
   }
 }
