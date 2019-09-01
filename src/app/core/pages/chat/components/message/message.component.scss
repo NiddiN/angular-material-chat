@@ -1,0 +1,29 @@
+@import 'variables';
+
+.message {
+  padding: 10px;
+  border-top: 1px solid $message-border-color;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 10px 0;
+
+    .author {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        height: 14px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+}

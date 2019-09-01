@@ -5,9 +5,16 @@ import { ChatRoutingModule } from './chat-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ChatComponent } from './chat.component';
+import { WrapperComponent, MatChatComponent, MessageComponent } from './components';
+
 
 @NgModule({
-  declarations: [ChatComponent],
+  declarations: [
+    ChatComponent,
+    WrapperComponent,
+    MatChatComponent,
+    MessageComponent,
+  ],
   imports: [
     CommonModule,
     ChatRoutingModule,
