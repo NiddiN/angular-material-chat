@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title>What's your name?</mat-card-title>
+  <mat-card-content>
+    <form class="sign-in-form" [formGroup]="signInForm">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Username" formControlName="username">
+        <mat-hint [align]="'start'">Letters only!</mat-hint>
+      </mat-form-field>
+      <button mat-button [disabled]="isInvalidForm()" (click)="submit()">Sing in</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -17,7 +17,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@interfaces": ["src/app/interfaces/index.ts"],
+      "@services": ["src/app/services/index.ts"],
+      "@guards": ["src/app/guards/index.ts"],
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
