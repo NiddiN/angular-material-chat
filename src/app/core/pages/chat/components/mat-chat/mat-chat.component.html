@@ -1,14 +1,32 @@
 <mat-card class="chat">
   <mat-card-header class="chat__header">
-    <mat-card-title class="chat__header_title">General chat</mat-card-title>
+    <mat-card-title class="chat__header-title">General chat</mat-card-title>
   </mat-card-header>
-  <mat-card-content class="chat__content">
-
+  <mat-card-content class="chat__content" #chatContent>
+    <div class="message-container">
+      <ng-container *ngFor="let message of messages">
+        <app-message [message]="message"
+                     (emitMessageToRemove)="removeMessage($event)"
+                     (emitMessageToEdit)="editMessage($event)">
+        </app-message>
+      </ng-container>
+    </div>
   </mat-card-content>
   <mat-card-actions class="chat__footer">
     <mat-form-field class="chat__footer_input">
-      <input type="text" matInput placeholder="Enter you message">
+      <input matInput
+             type="text"
+             placeholder="Enter you message"
+             (keyup.enter)="sendMessage()"
+             [(ngModel)]="inputMessageField">
+      <mat-icon *ngIf="messageToEdit" class="cancel-edit" (click)="cancelEdit()">close</mat-icon>
     </mat-form-field>
-    <button mat-button color="primary" class="chat__footer_button">Send</button>
+    <button mat-button
+            color="primary"
+            [disabled]="isEmptyMessage()"
+            class="chat__footer_button"
+            (click)="sendMessage()">
+      {{ messageToEdit ? 'Edit' : 'Send' }}
+    </button>
   </mat-card-actions>
 </mat-card>

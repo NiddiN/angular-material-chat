@@ -16,13 +16,13 @@ export class UserService {
   }
 
   public signIn(inputUser: User): void {
-    localStorage.setItem('ChatUsername', inputUser.username);
+    localStorage.setItem('chatUsername', inputUser.username);
     this.user = inputUser;
     this.router.navigate(['/']);
   }
 
   public signOut(): void {
-    localStorage.removeItem('ChatUsername');
+    localStorage.removeItem('chatUsername');
     this.user = null;
     this.router.navigate(['sign-in']);
   }
@@ -33,7 +33,7 @@ export class UserService {
 
   private getUserFormStorage(): string {
     this.user = {
-      username: localStorage.getItem('ChatUsername')
+      username: localStorage.getItem('chatUsername')
     };
     return this.user.username;
   }

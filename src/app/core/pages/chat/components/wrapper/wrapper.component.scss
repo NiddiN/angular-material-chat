@@ -1,6 +1,10 @@
 .wrapper {
-  padding: 10vh 15vh;
   height: calc(100% - 20vh);
+  padding: 10vh 15vw;
+
+  @media screen and (min-width: 1440px) {
+    padding: 10vh 30vw;
+  }
 
   @media screen and (max-width: 768px) {
     height: 100%;
