@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CoreRoutingModule } from './core-routing.module';
-import { WrapperComponent } from './components/wrapper/wrapper.component';
-import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from '../shared/shared.module';
+
+import {
+  WrapperComponent, HeaderComponent
+} from './components';
 
 @NgModule({
   declarations: [
