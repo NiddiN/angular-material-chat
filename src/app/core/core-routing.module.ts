@@ -1,21 +1,35 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { WrapperComponent } from './components';
+import { AuthGuard } from '../guards';
 
 const routes: Routes = [
   {
-    path: 'sign-in',
-    component: SignInComponent,
+    path: '',
+    component: WrapperComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'chat',
+        loadChildren: () => import('./pages/chat/chat.module')
+          .then(m => m.ChatModule)
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'chat',
+      }
+    ]
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'sign-in',
-  }
+    path: 'sign-in',
+    loadChildren: () => import('./pages/sign-in/sign-in.module')
+      .then(m => m.SignInModule)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class CoreRoutingModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '@services';
 
@@ -13,8 +14,10 @@ export class SignInComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
+    this.isAuthUser();
     this.buildForm();
   }
 
@@ -28,6 +31,12 @@ export class SignInComponent {
         ]
       ]
     });
+  }
+
+  private isAuthUser(): void {
+    if (this.userService.isAuth()) {
+      this.router.navigate(['/']);
+    }
   }
 
   public submit(): void {
