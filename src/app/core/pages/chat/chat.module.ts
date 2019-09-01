@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ChatRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ChatModule { }

@@ -11,6 +11,10 @@ export class UserService {
 
   constructor(private router: Router) { }
 
+  public get username(): string {
+    return this.user ? this.user.username : this.getUserFormStorage();
+  }
+
   public signIn(inputUser: User): void {
     localStorage.setItem('ChatUsername', inputUser.username);
     this.user = inputUser;
@@ -21,5 +25,16 @@ export class UserService {
     localStorage.removeItem('ChatUsername');
     this.user = null;
     this.router.navigate(['sign-in']);
+  }
+
+  public isAuth(): boolean {
+    return !!this.getUserFormStorage();
+  }
+
+  private getUserFormStorage(): string {
+    this.user = {
+      username: localStorage.getItem('ChatUsername')
+    };
+    return this.user.username;
   }
 }

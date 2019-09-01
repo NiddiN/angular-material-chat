@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WrapperComponent } from './components';
+import { AuthGuard } from '../guards';
 
 const routes: Routes = [
   {
     path: '',
     component: WrapperComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'chat',
