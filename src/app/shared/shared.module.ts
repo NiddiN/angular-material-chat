@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatInputModule, MatCardModule, MatButtonModule
 } from '@angular/material';
@@ -9,13 +9,15 @@ import {
   declarations: [],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
   ],
   exports: [
-    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
