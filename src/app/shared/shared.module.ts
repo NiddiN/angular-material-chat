@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatInputModule, MatCardModule, MatButtonModule,
-  MatToolbarModule, MatDividerModule, MatIconModule,
+  MatToolbarModule, MatIconModule,
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +16,6 @@ import {
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    MatDividerModule,
     MatIconModule,
   ],
   exports: [
@@ -26,7 +25,6 @@ import {
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    MatDividerModule,
     MatIconModule,
   ]
 })

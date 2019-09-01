@@ -27,17 +27,9 @@ export class MatChatComponent implements AfterViewChecked {
 
   public sendMessage(): void {
     if (this.messageToEdit) {
-      this.messageToEdit.text = this.inputMessageField;
-      this.messages = this.messageService.updateMessage(this.messageToEdit);
-      this.messageToEdit = null;
+      this.editMessage();
     } else {
-      const currentDate = new Date();
-      this.messages = this.messageService.addMessage({
-        id: currentDate.getTime() * Math.random(),
-        author: this.currentUserName,
-        text: this.inputMessageField,
-        date: currentDate.toISOString()
-      });
+      this.addMessage();
     }
     this.clearInputField();
     this.scrollToEnd();
@@ -47,7 +39,7 @@ export class MatChatComponent implements AfterViewChecked {
     this.messages = this.messageService.removeMessage(messageToRemove);
   }
 
-  public editMessage(message: Message): void {
+  public setMessageToEdit(message: Message): void {
     this.messageToEdit = message;
     this.inputMessageField = message.text;
   }
@@ -59,6 +51,22 @@ export class MatChatComponent implements AfterViewChecked {
 
   public isEmptyMessage(): boolean {
     return !this.inputMessageField;
+  }
+
+  private addMessage(): void {
+    const currentDate = new Date();
+    this.messages = this.messageService.addMessage({
+      id: currentDate.getTime() * Math.random(),
+      author: this.currentUserName,
+      text: this.inputMessageField,
+      date: currentDate.toISOString()
+    });
+  }
+
+  private editMessage(): void {
+    this.messageToEdit.text = this.inputMessageField;
+    this.messages = this.messageService.updateMessage(this.messageToEdit);
+    this.messageToEdit = null;
   }
 
   private clearInputField(): void {

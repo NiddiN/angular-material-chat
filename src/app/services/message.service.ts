@@ -22,7 +22,9 @@ export class MessageService {
 
   public updateMessage(messageToUpdate: Message): Array<Message> {
     let messages = this.getMessages();
-    messages = messages.map(message => message.id === messageToUpdate.id ? messageToUpdate : message);
+    messages = messages.map(message => {
+      return message.id === messageToUpdate.id ? messageToUpdate : message;
+    });
     this.updateMessages(messages);
     return messages;
   }

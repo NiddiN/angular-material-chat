@@ -1,18 +1,16 @@
-<div>
-  <div class="message">
-    <div class="message__header">
-      <span class="author">{{ message.author }}</span>
-      <span>
-        <span class="actions">
-          <span *ngIf="isCurrentUser()">
-            <mat-icon color="primary" (click)="editMessage()">edit</mat-icon>
-            <mat-icon color="warn" (click)="removeMessage()">delete</mat-icon>
-          </span>
-          {{ message.date | date: 'HH:mm' }}
+<div class="message">
+  <div class="message__header">
+    <span class="author">{{ message.author }}</span>
+    <span>
+      <span class="actions">
+        <span *ngIf="isCurrentUser()">
+          <mat-icon color="primary" (click)="editMessage()">edit</mat-icon>
+          <mat-icon color="warn" (click)="removeMessage()">delete</mat-icon>
         </span>
+        {{ message.date | date: 'HH:mm' }}
       </span>
-    </div>
-    <div class="message__content-text">{{ message.text }}</div>
-    <div class="message__content-footer"></div>
+    </span>
   </div>
+  <div class="message__content-text">{{ message.text }}</div>
+  <div class="message__content-footer"></div>
 </div>

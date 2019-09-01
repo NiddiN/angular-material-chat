@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Message } from '@interfaces';
 import { UserService } from '@services';
+import { Message } from '@interfaces';
 
 @Component({
   selector: 'app-message',
